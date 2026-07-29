@@ -25,12 +25,8 @@
 <meta name="twitter:image" content="{{ "og-image.png" | absURL }}">
 <meta name="theme-color" content="{{ with site.Params.theme.color.light }}{{ . }}{{ else }}#faf8f6{{ end }}">
 <meta name="color-scheme" content="light dark">
-{{ with site.Params.theme.font.googleFonts }}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-{{ $fontsURL := printf "https://fonts.googleapis.com/css2?family=%s&display=swap" . }}
-<link href="{{ $fontsURL | safeURL }}" rel="stylesheet">
-{{ end }}
+{{ $fontsCSS := resources.Get "css/fonts.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $fontsCSS.RelPermalink }}">
 {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
   {{ with site.Params.theme }}
