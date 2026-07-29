@@ -1,0 +1,42 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.Title | jsonify }},
+  "url": {{ .Site.BaseURL | jsonify }},
+  "description": {{ (or .Description site.Params.description) | jsonify }}
+}
+</script>
+{{ if not .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ .Title | jsonify }},
+  "url": {{ .Permalink | jsonify }},
+  {{ with .Date }}"datePublished": {{ .Format "2006-01-02" | jsonify }},{{ end }}
+  {{ with .Lastmod }}"dateModified": {{ .Format "2006-01-02" | jsonify }},{{ end }}
+  "description": {{ (or .Description site.Params.description) | jsonify }}
+}
+</script>
+{{ end -}}
+{{- $sections := .Ancestors | append . -}}
+{{- if gt (len $sections) 1 }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{- range $i, $p := $sections }}
+    {{- if $i }},{{ end }}
+    {
+      "@type": "ListItem",
+      "position": {{ add $i 1 }},
+      "name": {{ or $p.Title $p.LinkTitle (site.Title) | jsonify }},
+      "item": {{ $p.Permalink | jsonify }}
+    }
+    {{- end }}
+  ]
+}
+</script>
+{{ end }}

@@ -16,8 +16,13 @@
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:locale" content="{{ site.Language.Lang | default "en" }}">
+<meta property="og:image" content="{{ "og-image.png" | absURL }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:description" content="{{ $desc }}">
+<meta name="twitter:image" content="{{ "og-image.png" | absURL }}">
 <meta name="theme-color" content="{{ with site.Params.theme.color.light }}{{ . }}{{ else }}#faf8f6{{ end }}">
 <meta name="color-scheme" content="light dark">
 {{ with site.Params.theme.font.googleFonts }}
@@ -66,4 +71,5 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})"></script>
+{{ partial "jsonld.html" . }}
 {{ block "head-extra" . }}{{ end }}
