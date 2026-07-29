@@ -93,7 +93,13 @@ pre {
   padding: 1rem;
   border-radius: 6px;
   overflow-x: auto;
+  scrollbar-color: var(--gray) transparent;
+  scrollbar-width: thin;
 }
+
+pre::-webkit-scrollbar { height: 8px; }
+pre::-webkit-scrollbar-track { background: transparent; }
+pre::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 4px; }
 
 pre code {
   background: none;
