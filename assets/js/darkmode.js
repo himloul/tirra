@@ -4,3 +4,10 @@ function toggleDark() {
   document.documentElement.setAttribute("data-theme", next);
   localStorage.setItem("theme", next);
 }
+
+window.addEventListener("pageshow", function(e) {
+  if (e.persisted) {
+    var t = localStorage.getItem("theme");
+    if (t) document.documentElement.setAttribute("data-theme", t);
+  }
+});
