@@ -1,0 +1,69 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function(){var t=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"))})();
+</script>
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
+{{ $desc := .Description | default site.Params.description }}
+{{ with $desc }}<meta name="description" content="{{ . }}">{{ end }}
+<link rel="icon" href="{{ "favicon.ico" | relURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="{{ $desc }}">
+<meta name="theme-color" content="{{ with site.Params.theme.color.light }}{{ . }}{{ else }}#faf8f6{{ end }}">
+<meta name="color-scheme" content="light dark">
+{{ with site.Params.theme.font.googleFonts }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{ $fontsURL := printf "https://fonts.googleapis.com/css2?family=%s&display=swap" . }}
+<link href="{{ $fontsURL | safeURL }}" rel="stylesheet">
+{{ end }}
+{{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  {{ with resources.Get "css/custom.css" }}
+  <link rel="stylesheet" href="{{ (. | resources.Minify | resources.Fingerprint).RelPermalink }}">
+  {{ end }}
+  {{ with site.Params.theme }}
+<style>
+:root {
+  {{ with .contentWidth }}--content-width: {{ . }};{{ end }}
+  {{ with .font.body }}--font-body: {{ . | safeCSS }};{{ end }}
+  {{ with .font.heading }}--font-heading: {{ . | safeCSS }};{{ end }}
+  {{ with .font.code }}--font-code: {{ . | safeCSS }};{{ end }}
+  {{ with .color.light }}--light: {{ . }};{{ end }}
+  {{ with .color.lightgray }}--lightgray: {{ . }};{{ end }}
+  {{ with .color.gray }}--gray: {{ . }};{{ end }}
+  {{ with .color.darkgray }}--darkgray: {{ . }};{{ end }}
+  {{ with .color.dark }}--dark: {{ . }};{{ end }}
+  {{ with .color.secondary }}--secondary: {{ . }};{{ end }}
+  {{ with .color.tertiary }}--tertiary: {{ . }};{{ end }}
+  {{ with .color.highlight }}--highlight: {{ . }};{{ end }}
+  {{ with .color.textHighlight }}--textHighlight: {{ . }};{{ end }}
+}
+{{ with .colorDark }}
+[data-theme="dark"] {
+  {{ with .light }}--light: {{ . }};{{ end }}
+  {{ with .lightgray }}--lightgray: {{ . }};{{ end }}
+  {{ with .gray }}--gray: {{ . }};{{ end }}
+  {{ with .darkgray }}--darkgray: {{ . }};{{ end }}
+  {{ with .dark }}--dark: {{ . }};{{ end }}
+  {{ with .secondary }}--secondary: {{ . }};{{ end }}
+  {{ with .tertiary }}--tertiary: {{ . }};{{ end }}
+  {{ with .highlight }}--highlight: {{ . }};{{ end }}
+  {{ with .textHighlight }}--textHighlight: {{ . }};{{ end }}
+}
+{{ end }}
+</style>
+{{ end }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})"></script>
+{{ block "head-extra" . }}{{ end }}

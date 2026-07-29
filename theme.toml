@@ -1,0 +1,10 @@
+name = "tirra"
+license = "MIT"
+licenselink = "https://mit-license.org"
+description = "Personal digital garden theme"
+homepage = "https://github.com/your-username"
+min_version = "0.140.0"
+
+[author]
+  name = "Your Name"
+  homepage = "https://example.org"

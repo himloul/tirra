@@ -1,0 +1,9 @@
+<nav class="breadcrumbs">
+  <a href="{{ "" | relURL }}">home</a>
+  {{ range .Ancestors.Reverse }}
+    {{ if not .IsHome }}
+    / <a href="{{ .RelPermalink }}">{{ .Title | lower }}</a>
+    {{ end }}
+  {{ end }}
+  / {{ .Title | lower }}
+</nav>
