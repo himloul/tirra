@@ -33,9 +33,6 @@
 {{ end }}
 {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
-  {{ with resources.Get "css/custom.css" }}
-  <link rel="stylesheet" href="{{ (. | resources.Minify | resources.Fingerprint).RelPermalink }}">
-  {{ end }}
   {{ with site.Params.theme }}
 <style>
 :root {
