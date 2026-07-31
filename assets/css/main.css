@@ -74,6 +74,23 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; }
 h3 { font-size: 1.25rem; }
+h4 { font-size: 1.05rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.85rem; }
+
+.heading-anchor {
+  opacity: 0;
+  text-decoration: none;
+  color: var(--gray);
+  margin-left: 0.25em;
+  vertical-align: middle;
+  display: inline-block;
+}
+.heading-anchor svg {
+  display: block;
+}
+h2:hover .heading-anchor, h3:hover .heading-anchor, h4:hover .heading-anchor,
+h5:hover .heading-anchor, h6:hover .heading-anchor { opacity: 1; }
 
 p, li { line-height: 1.6rem; }
 
