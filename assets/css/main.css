@@ -10,6 +10,11 @@
   --font-heading: "Crimson Pro", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-code: "Source Code Pro", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   --content-width: 650px;
+  --callout-info: #3f6ec6;
+  --callout-tip: #3c8a55;
+  --callout-important: #7a54b8;
+  --callout-warning: #a06c14;
+  --callout-alert: #b03a3a;
 }
 
 [data-theme="dark"] {
@@ -20,6 +25,11 @@
   --dark: #ece8e2;
   --highlight: #b4aa961f;
   --textHighlight: #c8aa5066;
+  --callout-info: #79a5e8;
+  --callout-tip: #6fce8f;
+  --callout-important: #b18fe6;
+  --callout-warning: #dfae4a;
+  --callout-alert: #e5827b;
 }
 
 *,
@@ -397,16 +407,25 @@ footer a { color: var(--gray); }
 }
 
 .callout {
+  --callout-accent: var(--gray);
   margin: 1em 0;
   padding: 0.75em 1em;
-  background: var(--lightgray);
-  border-radius: 5px;
+  background: color-mix(in srgb, var(--callout-accent) 8%, var(--light));
+  border: 1px solid color-mix(in srgb, var(--callout-accent) 30%, transparent);
+  border-radius: 6px;
 }
 
 .callout-title {
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--callout-accent);
   margin-bottom: 0.3em;
 }
+
+.callout-note, .callout-info { --callout-accent: var(--callout-info); }
+.callout-tip { --callout-accent: var(--callout-tip); }
+.callout-important { --callout-accent: var(--callout-important); }
+.callout-warning { --callout-accent: var(--callout-warning); }
+.callout-alert, .callout-error { --callout-accent: var(--callout-alert); }
 
 @media (max-width: 800px) {
   .top-controls { padding: 0.75rem 1rem 0; }

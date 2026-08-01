@@ -11,6 +11,7 @@ Single-column Hugo theme for reading. Narrow text column, warm light and dark pa
 - Reading progress bar and back-to-top button
 - Copy button on code blocks
 - Image lightbox
+- Callouts: blockquotes starting with `> [!type]` render as labeled note, tip, warning, etc.
 - Mermaid diagrams with full-screen view, loaded only on pages that contain a `mermaid` code fence
 - KaTeX math, loaded only on pages that set `katex: true`
 - Print stylesheet
@@ -97,6 +98,7 @@ The theme ships no font files; without them it renders with system fonts. To use
 - Mermaid: a `mermaid` code fence renders as a diagram with copy and full-screen buttons.
 - KaTeX: set `katex: true` in front matter; use `$$...$$` for display math and `\(...\)` for inline.
 - Tags: pages with a `tags` front-matter list link to `/tags/<tag>/`.
+- Callouts: start a blockquote with `> [!type]`, optionally with a title (`> [!warning] Careful`). Supported types are `note`, `info`, `tip`, `important`, `warning`, `alert`, and `error`; any other type renders as a neutral callout. The marker line keeps the rest of the blockquote's markup.
 
 ## Keyboard shortcuts
 
