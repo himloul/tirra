@@ -660,3 +660,150 @@ footer a { color: var(--gray); }
 [data-theme=dark] .chroma .vg { color: #c9d1d9; }
 [data-theme=dark] .chroma .vi { color: #c9d1d9; }
 [data-theme=dark] .chroma .w { color: #6e7681; }
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--gray);
+  z-index: 1000;
+}
+
+.to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  color: var(--dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  z-index: 900;
+}
+
+.to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (hover: hover) {
+  .to-top:hover { border-color: var(--gray); }
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  z-index: 1001;
+  cursor: zoom-out;
+}
+
+.lightbox[hidden] { display: none; }
+
+.lightbox img {
+  max-width: 92%;
+  max-height: 88%;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+}
+
+.lightbox-caption {
+  color: #fff;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.toc {
+  margin: 1.5em 0;
+  padding: 0.6em 1em;
+  border-left: 2px solid var(--lightgray);
+}
+
+.toc summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.toc nav ul {
+  list-style: none;
+  padding-left: 0.5em;
+  margin: 0.5em 0 0;
+}
+
+.toc nav ul ul { padding-left: 1em; }
+
+.toc nav a {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+@media print {
+  .top-controls,
+  .search-overlay,
+  .to-top,
+  .progress-bar,
+  .lightbox,
+  .clipboard-button,
+  .mermaid-fullscreen-btn,
+  .breadcrumbs,
+  .footer-icon,
+  .heading-anchor {
+    display: none !important;
+  }
+
+  body { background: #fff !important; }
+
+  [data-theme="dark"] {
+    --light: #fff;
+    --lightgray: #ddd;
+    --gray: #555;
+    --darkgray: #222;
+    --dark: #000;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration-color: #888;
+  }
+
+  pre, table, img, blockquote { break-inside: avoid; }
+
+  pre {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+}
