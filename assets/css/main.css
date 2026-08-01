@@ -33,6 +33,8 @@
   outline-offset: 2px;
 }
 
+.search-input:focus-visible { outline: none; }
+
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
