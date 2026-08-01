@@ -4,8 +4,8 @@
   --gray: #7a736c;
   --darkgray: #3a3632;
   --dark: #221f1c;
-  --secondary: #7d6553;
-  --tertiary: #5a7a8c;
+  --secondary: #6f8347;
+  --tertiary: #556b32;
   --highlight: #c8b49b59;
   --textHighlight: #e6be5066;
   --font-body: "Nunito", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -20,8 +20,8 @@
   --gray: #7a7a80;
   --darkgray: #d4d0cc;
   --dark: #ece8e2;
-  --secondary: #baae9b;
-  --tertiary: #7ba0b5;
+  --secondary: #a9bb80;
+  --tertiary: #c6d698;
   --highlight: #b4aa961f;
   --textHighlight: #c8aa5066;
 }
