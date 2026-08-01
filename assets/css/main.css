@@ -28,6 +28,11 @@
   box-sizing: border-box;
 }
 
+:focus-visible {
+  outline: 2px solid var(--dark);
+  outline-offset: 2px;
+}
+
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
@@ -98,6 +103,7 @@ h6 { font-size: 0.85rem; }
 }
 h2:hover .heading-anchor, h3:hover .heading-anchor, h4:hover .heading-anchor,
 h5:hover .heading-anchor, h6:hover .heading-anchor { opacity: 1; }
+.heading-anchor:focus-visible { opacity: 1; }
 
 p, li { line-height: 1.6rem; }
 
@@ -236,7 +242,6 @@ main {
   border-bottom: 2px solid var(--lightgray);
   background: none;
   color: var(--dark);
-  outline: none;
 }
 
 .search-input:focus { border-bottom-color: var(--gray); }
