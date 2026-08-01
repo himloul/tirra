@@ -286,6 +286,19 @@ main {
   line-height: 1.4;
 }
 
+.search-status {
+  margin-top: 1rem;
+  color: var(--gray);
+  font-size: 0.85rem;
+}
+
+.search-result mark {
+  background: var(--textHighlight);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
 footer {
   padding: 1.5rem 0;
   margin-top: 4rem;
