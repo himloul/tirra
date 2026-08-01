@@ -34,10 +34,14 @@
 
 html {
   scroll-behavior: smooth;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray) transparent;
+  scrollbar-gutter: stable;
 }
 
-html::-webkit-scrollbar { display: none; }
+html::-webkit-scrollbar { width: 8px; }
+html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 4px; }
 
 body {
   margin: 0;
@@ -302,6 +306,7 @@ footer a { color: var(--secondary); }
   color: var(--gray);
   margin-bottom: 1.5em;
 }
+.breadcrumbs svg { display: inline; vertical-align: -0.1em; }
 
 .breadcrumbs a { color: var(--gray); }
 @media (hover: hover) {
@@ -319,10 +324,10 @@ footer a { color: var(--secondary); }
 
 .home-title {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: var(--dark);
   margin: 0.5em 0 0.2em;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .home-intro {

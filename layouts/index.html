@@ -1,5 +1,6 @@
 {{ define "main" }}
 <div class="container">
+  {{ partial "breadcrumbs.html" . }}
   <div class="home-title">{{ site.Title }}</div>
   {{ .Content }}
 </div>
