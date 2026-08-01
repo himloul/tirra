@@ -64,6 +64,7 @@ body {
   line-height: 1.6;
   background: var(--light);
   color: var(--darkgray);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 a {
@@ -137,6 +138,7 @@ pre {
   overflow-x: auto;
   scrollbar-color: var(--gray) transparent;
   scrollbar-width: thin;
+  transition: background-color 0.2s ease;
 }
 
 pre::-webkit-scrollbar { height: 8px; }
@@ -152,6 +154,7 @@ blockquote {
   margin: 1rem 0;
   padding-left: 1rem;
   background: var(--light);
+  transition: background-color 0.2s ease;
 }
 
 img {
@@ -243,6 +246,7 @@ main {
   width: min(90vw, 500px);
   max-height: 80vh;
   overflow-y: auto;
+  transition: background-color 0.2s ease;
 }
 
 .search-input {
@@ -426,6 +430,7 @@ footer a { color: var(--gray); }
   background: color-mix(in srgb, var(--callout-accent) 8%, var(--light));
   border: 1px solid color-mix(in srgb, var(--callout-accent) 30%, transparent);
   border-radius: 6px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .callout-title {
@@ -844,5 +849,11 @@ footer a { color: var(--gray); }
   pre {
     white-space: pre-wrap;
     overflow-wrap: break-word;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
   }
 }
