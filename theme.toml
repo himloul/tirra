@@ -1,10 +1,8 @@
 name = "tirra"
 license = "MIT"
 licenselink = "https://mit-license.org"
-description = "Personal digital garden theme"
-homepage = "https://github.com/your-username"
+description = "Minimal reading-first theme with dark mode, search, TOC, lightbox, mermaid, and KaTeX"
 min_version = "0.140.0"
 
 [author]
-  name = "Your Name"
-  homepage = "https://example.org"
+  name = "tirra contributors"

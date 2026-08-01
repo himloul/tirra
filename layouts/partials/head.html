@@ -25,8 +25,10 @@
 <meta name="twitter:image" content="{{ "og-image.png" | absURL }}">
 <meta name="theme-color" content="{{ with site.Params.theme.color.light }}{{ . }}{{ else }}#faf8f6{{ end }}">
 <meta name="color-scheme" content="light dark">
-{{ $fontsCSS := resources.Get "css/fonts.css" | resources.Minify | resources.Fingerprint }}
+{{ with resources.Get "css/fonts.css" }}
+{{ $fontsCSS := . | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $fontsCSS.RelPermalink }}">
+{{ end }}
 {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
   {{ with site.Params.theme }}
