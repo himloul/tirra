@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /tags/
+Disallow: /draft/
+
+Sitemap: {{ "sitemap.xml" | absURL }}

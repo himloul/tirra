@@ -16,7 +16,17 @@
   "url": {{ .Permalink | jsonify }},
   {{ with .Date }}"datePublished": {{ .Format "2006-01-02" | jsonify }},{{ end }}
   {{ with .Lastmod }}"dateModified": {{ .Format "2006-01-02" | jsonify }},{{ end }}
-  "description": {{ (or .Description site.Params.description) | jsonify }}
+  "description": {{ (or .Description site.Params.description) | jsonify }},
+  "mainEntityOfPage": {{ .Permalink | jsonify }},
+  "author": {
+    "@type": "Person",
+    "name": {{ (site.Params.author | default site.Title) | jsonify }}
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": {{ (site.Params.author | default site.Title) | jsonify }}
+  },
+  "image": {{ ("og-image.png" | absURL) | jsonify }}
 }
 </script>
 {{ end -}}
