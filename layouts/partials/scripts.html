@@ -2,7 +2,7 @@
 <script defer src="{{ $darkmode.RelPermalink }}"></script>
 {{ if .Store.Get "hasMermaid" }}
 <script defer src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>document.addEventListener("DOMContentLoaded",function(){var c=getComputedStyle(document.documentElement).getPropertyValue("--secondary").trim();mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{fontFamily:'"Nunito",system-ui,sans-serif',lineColor:c,arrowheadColor:c}})});</script>
+<script>document.addEventListener("DOMContentLoaded",function(){var c=getComputedStyle(document.documentElement).getPropertyValue("--gray").trim();mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{fontFamily:'"Nunito",system-ui,sans-serif',lineColor:c,arrowheadColor:c}})});</script>
 {{ end }}
 <script>document.addEventListener("click",function(e){var b=e.target.closest(".clipboard-button");if(!b||b.classList.contains("copied"))return;var c=b.closest(".code-container,.mermaid-container");if(!c)return;var p=c.querySelector("pre");if(!p)return;navigator.clipboard.writeText(p.textContent);var t=b.innerHTML;b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';b.classList.add("copied");setTimeout(function(){b.innerHTML=t;b.classList.remove("copied")},2000)});</script>
 <script defer src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>

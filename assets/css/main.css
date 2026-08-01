@@ -4,8 +4,6 @@
   --gray: #7a736c;
   --darkgray: #3a3632;
   --dark: #221f1c;
-  --secondary: #6f8347;
-  --tertiary: #556b32;
   --highlight: #c8b49b59;
   --textHighlight: #e6be5066;
   --font-body: "Nunito", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -20,8 +18,6 @@
   --gray: #7a7a80;
   --darkgray: #d4d0cc;
   --dark: #ece8e2;
-  --secondary: #a9bb80;
-  --tertiary: #c6d698;
   --highlight: #b4aa961f;
   --textHighlight: #c8aa5066;
 }
@@ -54,18 +50,25 @@ body {
 }
 
 a {
-  color: var(--secondary);
+  color: var(--gray);
   font-weight: 500;
-  text-decoration: none;
-  transition: color 0.2s;
+  text-decoration: underline;
+  text-decoration-color: var(--lightgray);
+  text-underline-offset: 3px;
+  transition: color 0.2s, text-decoration-color 0.2s;
 }
 
 @media (hover: hover) {
   a:hover {
-    color: var(--tertiary);
-    text-decoration: underline;
+    color: var(--dark);
+    text-decoration-color: var(--gray);
   }
 }
+
+[data-theme="dark"] a { color: #a2a2aa; text-decoration-color: #4a4a52; }
+[data-theme="dark"] a:hover { color: var(--dark); text-decoration-color: var(--gray); }
+a:has(svg) { text-decoration: none; }
+.tag-list a { text-decoration: none; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
@@ -155,7 +158,7 @@ figcaption {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--tertiary) 60%, transparent);
+  background: color-mix(in srgb, var(--gray) 45%, transparent);
   color: var(--darkgray);
 }
 
@@ -235,7 +238,7 @@ main {
   outline: none;
 }
 
-.search-input:focus { border-bottom-color: var(--secondary); }
+.search-input:focus { border-bottom-color: var(--gray); }
 
 .search-results { margin-top: 1rem; }
 
@@ -256,7 +259,7 @@ main {
 }
 
 @media (hover: hover) {
-  .search-result:hover .search-result-title { color: var(--secondary); }
+  .search-result:hover .search-result-title { color: var(--dark); }
 }
 
 .search-result-snippet {
@@ -279,7 +282,7 @@ footer .container {
   font-size: 0.85rem;
 }
 
-footer a { color: var(--secondary); }
+footer a { color: var(--gray); }
 
 .footer-icon {
   display: block;
@@ -310,7 +313,7 @@ footer a { color: var(--secondary); }
 
 .breadcrumbs a { color: var(--gray); }
 @media (hover: hover) {
-  .breadcrumbs a:hover { color: var(--secondary); }
+  .breadcrumbs a:hover { color: var(--dark); }
 }
 
 .list-page h2 { font-family: var(--font-heading); }
@@ -318,7 +321,7 @@ footer a { color: var(--secondary); }
 .list-page li { margin: 1em 0; }
 .list-page a { font-size: 1.1rem; color: var(--dark); }
 @media (hover: hover) {
-  .list-page a:hover { color: var(--secondary); }
+  .list-page a:hover { color: var(--dark); }
 }
 .list-page .list-meta { font-size: 0.85rem; color: var(--gray); margin-left: 0.5em; }
 
@@ -335,7 +338,7 @@ footer a { color: var(--secondary); }
   line-height: 1.8;
 }
 
-.home-intro a { color: var(--tertiary); }
+.home-intro a { color: var(--gray); }
 
 .section-title {
   font-family: var(--font-heading);
@@ -352,7 +355,7 @@ footer a { color: var(--secondary); }
 .item-list li { margin: 0.6em 0; }
 .item-list a { color: var(--dark); }
 @media (hover: hover) {
-  .item-list a:hover { color: var(--secondary); }
+  .item-list a:hover { color: var(--dark); }
 }
 .item-list .date { font-size: 0.85rem; color: var(--gray); margin-left: 0.5em; }
 
@@ -367,7 +370,7 @@ footer a { color: var(--secondary); }
 
 .tag-list a {
   background: var(--highlight);
-  color: var(--secondary);
+  color: var(--gray);
   padding: 0.2rem 0.4rem;
   border-radius: 8px;
   font-size: 0.8rem;
@@ -380,7 +383,7 @@ footer a { color: var(--secondary); }
 
 @media (hover: hover) {
   .tag-list a:hover {
-    color: var(--tertiary);
+    color: var(--dark);
     text-decoration: none;
   }
 }
@@ -405,7 +408,7 @@ footer a { color: var(--secondary); }
 .mermaid svg *,
 .mermaid-overlay .mermaid-content svg * { font-family: var(--font-body) !important; }
 .mermaid svg .node rect,
-.mermaid-overlay .mermaid-content svg .node rect { fill: var(--light) !important; stroke: var(--secondary) !important; }
+.mermaid-overlay .mermaid-content svg .node rect { fill: var(--light) !important; stroke: var(--gray) !important; }
 .mermaid svg .nodeLabel,
 .mermaid-overlay .mermaid-content svg .nodeLabel { color: var(--dark) !important; }
 .mermaid svg .edgeLabel,
