@@ -29,7 +29,6 @@
 {{ $fontsCSS := . | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $fontsCSS.RelPermalink }}">
 {{ end }}
-{{ if .IsHome }}<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri&display=swap">{{ end }}
 {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
   {{ with site.Params.theme }}
