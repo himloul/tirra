@@ -341,6 +341,18 @@ footer a { color: var(--gray); }
   margin-bottom: 1.5em;
 }
 
+.draft-badge {
+  font-size: 0.75em;
+  font-weight: 600;
+  color: var(--callout-warning);
+  border: 1px solid var(--callout-warning);
+  border-radius: 3px;
+  padding: 0.1em 0.4em;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .breadcrumbs {
   font-size: 0.85rem;
   color: var(--gray);
