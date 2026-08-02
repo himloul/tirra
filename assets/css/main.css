@@ -792,12 +792,6 @@ footer a { color: var(--gray); }
   display: flex;
 }
 
-.lightbox-caption {
-  color: #fff;
-  font-size: 0.85rem;
-  text-align: center;
-}
-
 .toc {
   margin: 1.5em 0;
   padding: 0.6em 1em;
