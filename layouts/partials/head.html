@@ -60,10 +60,9 @@
 {{ end }}
 </style>
 {{ end }}
-{{ if .Param "katex" }}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})"></script>
+{{ $noop := .WordCount }}
+{{ if or (.Page.Store.Get "hasMath") (.Param "katex") }}
+<link rel="stylesheet" href="{{ "katex/katex.min.css" | relURL }}">
 {{ end }}
 {{ partial "jsonld.html" . }}
 {{ block "head-extra" . }}{{ end }}
