@@ -2,7 +2,7 @@ name = "tirra"
 license = "MIT"
 licenselink = "https://mit-license.org"
 description = "Minimal reading-first theme with dark mode, search, TOC, lightbox, mermaid, and KaTeX"
-min_version = "0.140.0"
+min_version = "0.146.0"
 
 [author]
   name = "tirra contributors"
