@@ -342,15 +342,13 @@ footer a { color: var(--gray); }
 }
 
 .draft-badge {
-  font-size: 0.75em;
-  font-weight: 600;
-  color: var(--callout-warning);
-  border: 1px solid var(--callout-warning);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--gray);
+  background: var(--lightgray);
   border-radius: 3px;
-  padding: 0.1em 0.4em;
+  padding: 0.1em 0.45em;
   vertical-align: middle;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 .breadcrumbs {
@@ -403,8 +401,10 @@ footer a { color: var(--gray); }
 
 .item-list li { margin: 0.6em 0; }
 .item-list a { color: var(--dark); }
+.item-list a.draft { color: color-mix(in srgb, var(--dark) 55%, transparent); }
 @media (hover: hover) {
   .item-list a:hover { color: var(--dark); }
+  .item-list a.draft:hover { color: color-mix(in srgb, var(--dark) 80%, transparent); }
 }
 .item-list .date { font-size: 0.85rem; color: var(--gray); margin-left: 0.5em; }
 
