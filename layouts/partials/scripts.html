@@ -2,6 +2,7 @@
 <script defer src="{{ $darkmode.RelPermalink }}"></script>
 {{ $callouts := resources.Get "js/callouts.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $callouts.RelPermalink }}"></script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js')}</script>
 {{ if .Store.Get "hasMermaid" }}
 <script defer src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <script>document.addEventListener("DOMContentLoaded",function(){var c=getComputedStyle(document.documentElement).getPropertyValue("--gray").trim();mermaid.initialize({startOnLoad:true,theme:'base',themeVariables:{fontFamily:'"Source Sans 3",system-ui,sans-serif',lineColor:c,arrowheadColor:c}})});</script>
