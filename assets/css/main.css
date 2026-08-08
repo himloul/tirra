@@ -467,6 +467,12 @@ footer a {
   .card:hover .card-monogram { opacity: 0.85; }
 }
 
+@media (hover: none), (pointer: coarse) {
+  .card:active { transform: scale(0.98); }
+  .card:active .card-cover img,
+  .card:active .card-monogram { opacity: 0.6; }
+}
+
 .card-monogram {
   color: color-mix(in srgb, var(--gray) 55%, transparent);
   font-family: var(--font-heading);
