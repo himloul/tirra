@@ -14,6 +14,8 @@ Single-column Hugo theme for reading. Narrow text column, warm light and dark pa
 - Callouts: blockquotes starting with `> [!type]` render as labeled note, tip, warning, etc.
 - Mermaid diagrams with full-screen view, loaded only on pages that contain a `mermaid` code fence
 - KaTeX math, rendered server-side (no JavaScript); the stylesheet loads only on pages that contain math
+- External links open in a new tab (`target="_blank"` + `rel="noopener"`) and get a small arrow marker
+- Progressive web app: emitted web app manifest, installable from the browser, and an offline service worker (network-first for pages, so nothing goes stale online)
 - Print stylesheet
 - Colors, fonts, and content width set from the site config
 
@@ -34,7 +36,13 @@ theme = "tirra"
 enableRobotsTXT = true
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON", "WEBMANIFEST"]
+
+[outputFormats.WEBMANIFEST]
+  mediaType = "application/manifest+json"
+  baseName = "manifest"
+  isHTML = false
+  noUgly = true
 
 [taxonomies]
   tag = "tags"
@@ -88,6 +96,7 @@ Notes:
 
 - `enableRobotsTXT` enables the robots.txt layout shipped with the theme.
 - `[outputs]` must include `JSON` for the home page, or the search index is not generated.
+- `[outputs]` must include `WEBMANIFEST` (with `[outputFormats.WEBMANIFEST]` as shown) for the PWA manifest, plus `static/icon-192.png` and `static/icon-512.png`.
 - `[taxonomies] tag = "tags"` is assumed by the tag links.
 - The `[params.theme]` block is optional. Unset values fall back to the defaults in `main.css`.
 - The `[markup.goldmark.parser]` block enables the image render hook's auto-sizing (width/height from the file, preventing layout shift) and size overrides via `{width=...}`; both are required for those features.
@@ -113,6 +122,7 @@ The theme ships no font files; without them it renders with system fonts. To use
 - Images: `![alt](src "caption")` renders as a `<figure>` with auto `width`/`height` from the file (no layout shift), `loading="lazy"` and `decoding="async"`, and the title as a `<figcaption>`. To override a size, put the attribute on the line below the image: `{width=300}`. A bare image (no caption) renders as a plain `<img>`.
 - Tags: pages with a `tags` front-matter list link to `/tags/<tag>/`.
 - Callouts: start a blockquote with `> [!type]`, optionally with a title (`> [!warning] Careful`). Supported types are `note`, `info`, `tip`, `important`, `warning`, `alert`, and `error`; any other type renders as a neutral callout. The marker line keeps the rest of the blockquote's markup.
+- Card grid: a section or page with `layout: "card-grid"` in front matter renders its child pages as itch.io-style cards (cover image from the `image` param, or a monogram letter; then title, date, and a 2-line clamped description). Drafts get a corner badge; they never render in production builds.
 
 ## Keyboard shortcuts
 
