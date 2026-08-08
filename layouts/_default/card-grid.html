@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="container">
+  <article>
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="article-title">{{ .Title }}</h1>
+    {{ with .Content }}<div>{{ . }}</div>{{ end }}
+    <div class="card-grid">
+      {{ range .Pages }}
+      <a class="card" href="{{ .RelPermalink }}">
+        <div class="card-cover">
+          {{ with .Param "image" }}
+            <img src="{{ . | relURL }}" alt="" loading="lazy" decoding="async">
+          {{ else }}
+            <span class="card-monogram">{{ substr .Title 0 1 }}</span>
+          {{ end }}
+          {{ if .Draft }}<span class="card-draft">draft</span>{{ end }}
+        </div>
+        <div class="card-body">
+          <div class="card-title">{{ .Title }}</div>
+          {{ with .Date }}<div class="card-date">{{ .Format "Jan 2006" }}</div>{{ end }}
+          {{ with .Description }}<div class="card-desc">{{ . }}</div>{{ end }}
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </article>
+</div>
+{{ end }}
