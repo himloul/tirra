@@ -453,7 +453,6 @@ footer a {
   display: grid;
   place-items: center;
   background: color-mix(in srgb, var(--gray) 6%, var(--light));
-  border-right: 1px solid var(--lightgray);
 }
 
 .card-cover img {
@@ -519,7 +518,7 @@ footer a {
 }
 
 @media (max-width: 520px) {
-  .card-cover { flex: 0 0 32%; border-right: 1px solid var(--lightgray); }
+  .card-cover { flex: 0 0 32%; }
   .card-body { padding: 0.4em 0.8em; }
   .card-desc { -webkit-line-clamp: 2; }
 }
