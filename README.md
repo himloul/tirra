@@ -27,6 +27,17 @@ Copy `themes/tirra` into your site's `themes/` directory (or add it as a submodu
 theme = "tirra"
 ```
 
+## Demo site
+
+The `exampleSite/` directory is a working demo of every feature. From the theme root, link the theme into the example site and run it:
+
+```sh
+ln -s ../.. exampleSite/themes/tirra
+hugo server -s exampleSite
+```
+
+The symlink name must match the theme name (`tirra`). It is not committed; the CI workflow creates it for you.
+
 ## Configuration
 
 ```toml

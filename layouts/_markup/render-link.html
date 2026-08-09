@@ -1,0 +1,7 @@
+{{- $attrs := printf "href=%q" (.Destination | safeURL) }}
+{{- if strings.HasPrefix .Destination "http" }}
+  {{- $attrs = printf "%s class=\"external\" target=\"_blank\" rel=\"noopener\"" $attrs }}
+{{- end }}
+{{- with .Title }}{{ $attrs = printf "%s title=%q" $attrs . }}{{ end }}
+{{- range $k, $v := .Attributes }}{{ $attrs = printf "%s %s=%q" $attrs $k (string $v) }}{{ end }}
+<a {{ $attrs | safeHTMLAttr }}>{{ .Text | safeHTML }}</a>

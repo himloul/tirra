@@ -1,0 +1,30 @@
+{{- $width := "" }}
+{{- $height := "" }}
+{{- $ext := strings.ToLower (path.Ext .Destination) }}
+{{- if and (and (not .Attributes.width) (not .Attributes.height)) (ne $ext ".svg") }}
+  {{- $res := .PageInner.Resources.GetMatch (strings.TrimPrefix "/" .Destination) }}
+  {{- if $res }}
+    {{- $width = $res.Width }}
+    {{- $height = $res.Height }}
+  {{- else if not (strings.HasPrefix .Destination "http") }}
+    {{- with try (images.Config (printf "static/%s" (strings.TrimPrefix "/" .Destination))) }}
+      {{- with .Err }}{{ else }}{{ $width = .Value.Width }}{{ $height = .Value.Height }}{{ end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- $w := .Attributes.width | default $width }}
+{{- $h := .Attributes.height | default $height }}
+{{- $attrs := printf "src=%q" (.Destination | safeURL) }}
+{{- with .PlainText }}{{ $attrs = printf "%s alt=%q" $attrs . }}{{ end }}
+{{- with $w }}{{ $attrs = printf "%s width=%q" $attrs (string .) }}{{ end }}
+{{- with $h }}{{ $attrs = printf "%s height=%q" $attrs (string .) }}{{ end }}
+{{- range $k, $v := .Attributes }}{{ if and (ne $k "width") (ne $k "height") }}{{ $attrs = printf "%s %s=%q" $attrs $k (string $v) }}{{ end }}{{ end }}
+{{- $attrs = printf "%s loading=\"lazy\" decoding=\"async\"" $attrs }}
+{{- if .IsBlock }}
+<figure>
+  <img {{ $attrs | safeHTMLAttr }}>
+  {{- with .Title }}<figcaption>{{ . }}</figcaption>{{ end -}}
+</figure>
+{{- else }}
+  <img {{ $attrs | safeHTMLAttr }}{{ with .Title }} title="{{ . }}"{{ end }}>
+{{- end }}

@@ -1,0 +1,22 @@
+name: Build exampleSite
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.164.0"
+      - name: Link theme into exampleSite
+        run: mkdir -p exampleSite/themes && ln -s ../.. exampleSite/themes/tirra
+      - name: Build
+        run: hugo -s exampleSite --gc --minify

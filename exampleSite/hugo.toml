@@ -1,0 +1,65 @@
+baseURL = "https://example.org/"
+title = "Your Name"
+theme = "tirra"
+defaultContentLanguage = "en"
+enableRobotsTXT = true
+
+[params]
+  description = "Short site description"
+  author = "Your Name"
+
+  [params.social]
+    github = "your-github"
+
+  [params.theme]
+    contentWidth = "650px"
+
+    [params.theme.font]
+      body = "'Source Sans 3', system-ui, sans-serif"
+      heading = "'Crimson Pro', system-ui, sans-serif"
+      code = "'Source Code Pro', ui-monospace, monospace"
+
+    [params.theme.color]
+      light = "#faf8f6"
+      lightgray = "#ddd6cc"
+      gray = "#7a736c"
+      darkgray = "#3a3632"
+      dark = "#221f1c"
+      highlight = "#c8b49b59"
+      textHighlight = "#e6be5066"
+
+    [params.theme.colorDark]
+      light = "#1a1a1e"
+      lightgray = "#2e2e34"
+      gray = "#7a7a80"
+      darkgray = "#d4d0cc"
+      dark = "#ece8e2"
+      highlight = "#b4aa961f"
+      textHighlight = "#c8aa5066"
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+[taxonomies]
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON", "WEBMANIFEST"]
+
+[outputFormats.WEBMANIFEST]
+  mediaType = "application/manifest+json"
+  baseName = "manifest"
+  isHTML = false
+  noUgly = true
+
+[markup]
+  [markup.goldmark.parser]
+    wrapStandAloneImageWithinParagraph = false
+    [markup.goldmark.parser.attribute]
+      block = true
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [["\\[", "\\]"], ["$$", "$$"]]
+      inline = [["\\(", "\\)"], ["$", "$"]]

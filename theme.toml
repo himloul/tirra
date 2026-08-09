@@ -1,8 +1,18 @@
 name = "tirra"
 license = "MIT"
 licenselink = "https://mit-license.org"
-description = "Minimal reading-first theme with dark mode, search, TOC, lightbox, mermaid, and KaTeX"
+description = "Minimal reading-first Hugo theme with dark mode, search, TOC, lightbox, Mermaid, and KaTeX"
+homepage = "https://github.com/himloul/tirra"
+tags = ["blog", "reading", "minimal", "dark-mode", "search", "pwa", "responsive"]
+features = [
+  "dark mode with system preference detection and toggle",
+  "full-text search (Ctrl+K) over the JSON page index",
+  "server-side KaTeX math",
+  "Mermaid diagrams with full-screen view",
+  "progressive web app with offline service worker",
+]
 min_version = "0.146.0"
 
 [author]
-  name = "tirra contributors"
+  name = "himloul"
+  homepage = "https://github.com/himloul"
