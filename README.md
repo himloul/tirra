@@ -4,13 +4,14 @@ Single-column Hugo theme for reading. Narrow text column, warm light and dark pa
 
 ## Screenshots
 
-![Home, light mode](images/screenshot.png)
+<p>
+  <img src="images/screenshot.png" alt="Home, desktop" height="400">
+  <img src="images/screenshot-mobile.png" alt="Home, mobile" height="400">
+</p>
 
 | Light article | Dark article | Card grid |
 | --- | --- | --- |
 | ![Article, light mode](images/screenshot-article.png) | ![Article, dark mode](images/screenshot-article-dark.png) | ![Card grid](images/screenshot-grid.png) |
-
-![Home, mobile](images/screenshot-mobile.png)
 
 To regenerate the screenshots, serve the demo site and capture with Playwright:
 
