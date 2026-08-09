@@ -440,6 +440,7 @@ footer a {
   display: flex;
   flex-direction: row;
   border-radius: 6px;
+  border: 1px solid var(--lightgray);
   overflow: hidden;
   color: var(--dark);
   text-decoration: none;
