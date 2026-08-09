@@ -2,6 +2,28 @@
 
 Single-column Hugo theme for reading. Narrow text column, warm light and dark palettes, and a small set of page features. No CSS or JavaScript framework.
 
+## Screenshots
+
+![Home, light mode](images/screenshot.png)
+
+| Light article | Dark article | Card grid |
+| --- | --- | --- |
+| ![Article, light mode](images/screenshot-article.png) | ![Article, dark mode](images/screenshot-article-dark.png) | ![Card grid](images/screenshot-grid.png) |
+
+![Home, mobile](images/screenshot-mobile.png)
+
+To regenerate the screenshots, serve the demo site and capture with Playwright:
+
+```sh
+hugo server -s exampleSite --themesDir ../..
+npx playwright screenshot --viewport-size="1280,800" --full-page http://localhost:1313/ images/screenshot.png
+npx playwright screenshot --viewport-size="900,600" http://localhost:1313/ images/tn.png
+npx playwright screenshot --viewport-size="390,844" --full-page http://localhost:1313/ images/screenshot-mobile.png
+npx playwright screenshot --viewport-size="1280,800" --full-page http://localhost:1313/notes/demo-post/ images/screenshot-article.png
+npx playwright screenshot --color-scheme=dark --viewport-size="1280,800" --full-page http://localhost:1313/notes/demo-post/ images/screenshot-article-dark.png
+npx playwright screenshot --viewport-size="1280,800" --full-page http://localhost:1313/projects/ images/screenshot-grid.png
+```
+
 ## Features
 
 - Dark mode; default follows `prefers-color-scheme`, toggle saved to `localStorage`

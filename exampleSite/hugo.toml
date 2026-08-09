@@ -1,12 +1,12 @@
 baseURL = "https://example.org/"
-title = "Your Name"
+title = "tirra"
 theme = "tirra"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
 
 [params]
-  description = "Short site description"
-  author = "Your Name"
+  description = "A single-column Hugo theme for reading: warm palettes, dark mode, search, and a small set of page features."
+  author = "tirra"
 
   [params.social]
     github = "your-github"
