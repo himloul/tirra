@@ -44,11 +44,16 @@ npx playwright screenshot --viewport-size="1280,800" --full-page http://localhos
 
 ## Install
 
-Copy `themes/tirra` into your site's `themes/` directory (or add it as a submodule), then in `hugo.toml`:
+Copy `themes/tirra` into your site's `themes/` directory (or add it as a submodule), then set in `hugo.toml`:
 
 ```toml
 theme = "tirra"
+
+[markup]
+  _merge = "deep"
 ```
+
+`_merge = "deep"` lets the theme's markup defaults (themed code blocks instead of Chroma's default styling) apply; your own `[markup]` settings still win. If you'd rather set it explicitly, configure `[markup.highlight]` with `noClasses = false`.
 
 ## Demo site
 

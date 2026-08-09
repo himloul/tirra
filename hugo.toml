@@ -1,0 +1,6 @@
+[markup.highlight]
+  codeFences = true
+  guessSyntax = true
+  noClasses = false
+  lineNos = true
+  lineNumbersInTable = false

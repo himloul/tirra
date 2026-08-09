@@ -54,6 +54,7 @@ enableRobotsTXT = true
   noUgly = true
 
 [markup]
+  _merge = "deep"
   [markup.goldmark.parser]
     wrapStandAloneImageWithinParagraph = false
     [markup.goldmark.parser.attribute]
