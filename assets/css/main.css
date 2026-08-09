@@ -449,8 +449,7 @@ footer a {
 .card-cover {
   position: relative;
   flex: 0 0 40%;
-  aspect-ratio: 16 / 9;
-  align-self: flex-start;
+  min-width: 0;
   display: grid;
   place-items: center;
   background: color-mix(in srgb, var(--gray) 6%, var(--light));
@@ -520,7 +519,7 @@ footer a {
 }
 
 @media (max-width: 520px) {
-  .card-cover { flex: 0 0 32%; aspect-ratio: 1 / 1; border-right: 1px solid var(--lightgray); }
+  .card-cover { flex: 0 0 32%; border-right: 1px solid var(--lightgray); }
   .card-body { padding: 0.4em 0.8em; }
   .card-desc { -webkit-line-clamp: 2; }
 }
