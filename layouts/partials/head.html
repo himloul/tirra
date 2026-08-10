@@ -27,9 +27,20 @@
 <meta name="twitter:image" content="{{ "og-image.png" | absURL }}">
 <meta name="theme-color" content="{{ with site.Params.theme.color.light }}{{ . }}{{ else }}#faf8f6{{ end }}">
 <meta name="color-scheme" content="light dark">
-{{ with resources.Get "css/fonts.css" }}
-{{ $fontsCSS := . | resources.Minify | resources.Fingerprint }}
-<link rel="stylesheet" href="{{ $fontsCSS.RelPermalink }}">
+{{ $gf := site.Params.theme.font.google }}
+{{ $families := slice }}
+{{ range $k, $v := $gf }}
+  {{ if $v }}
+    {{ $spec := $v }}
+    {{ if not (in $v ":") }}{{ $spec = printf "%s:wght@400;500;600;700" $v }}{{ end }}
+    {{ $families = $families | append (printf "family=%s" (replace $spec " " "+")) }}
+  {{ end }}
+{{ end }}
+{{ if $families }}
+{{ $gfURL := printf "https://fonts.googleapis.com/css2?%s&display=swap" (delimit $families "&") }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="{{ $gfURL | safeURL }}" rel="stylesheet">
 {{ end }}
 {{ $css := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">

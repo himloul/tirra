@@ -152,7 +152,17 @@ A missing file only causes a 404 on that link; the build is unaffected.
 
 ## Fonts
 
-The theme ships no font files; without them it renders with system fonts. To use the typefaces the palette was designed around (Source Sans 3, Crimson Pro, Source Code Pro), self-host them: an `@font-face` stylesheet at `assets/css/fonts.css`, with the font files under `static/fonts/`. The theme links `css/fonts.css` when present.
+The theme loads its typefaces from Google Fonts. Each role is a labeled entry in `[params.theme.font.google]` — just copy the family name:
+
+```toml
+[params.theme.font.google]
+  heading = "Crimson Pro"
+  body = "Source Sans 3"
+  code = "Source Code Pro"
+  arabic = "Amiri"
+```
+
+The theme requests weights 400, 500, 600, 700 (the weights its CSS uses) for every family. To pin exact weights or styles, write the Google Fonts spec yourself, e.g. `"Crimson Pro:ital,wght@0,500;1,500"`. Roles are arbitrary — add any family you need; set one to `""` to drop it. The CSS font stacks live in `[params.theme.font]`.
 
 ## Content
 
