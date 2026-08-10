@@ -4,3 +4,9 @@
   noClasses = false
   lineNos = true
   lineNumbersInTable = false
+
+[params.theme.font.google]
+  heading = "Crimson Pro"
+  body = "Source Sans 3"
+  code = "Source Code Pro"
+  arabic = "Amiri"
