@@ -71,7 +71,7 @@ Start from the [exampleSite](#demo-site): copy it, keep `[markup]` and `theme = 
 
 - **Palette / width**: `[params.theme.color]` and `colorDark` restyle light and dark; `contentWidth` sets the column. Unset, the `--*` variables at the top of `main.css` rule.
 - **Fonts**: see [Fonts](#fonts). Optional; the system fallbacks in `main.css` otherwise.
-- **Search / PWA**: the home `outputs` (`JSON`, `WEBMANIFEST`) turn on the search index and the installable manifest (plus `static/icon-192.png` and `icon-512.png`).
+- **Search / PWA**: the home `outputs` (`JSON`, `WEBMANIFEST`) turn on the search index and the installable manifest (plus `static/icon-192.png` and `icon-512.png`). Tune the matcher via `[params.theme.search]` (`threshold`, `distance`, `minMatchCharLength`, `limit`).
 - **Math / images**: the `[markup]` block covers KaTeX passthrough and image sizing; usage in [Content](#content).
 - **`[taxonomies] tag = "tags"`**: assumed by the tag links.
 - **`enableRobotsTXT`**: ships a robots.txt layout with the theme.

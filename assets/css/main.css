@@ -67,7 +67,7 @@ body {
 }
 
 [lang="ar"] {
-  font-family: "Amiri", serif;
+  font-family: var(--font-arabic, "Amiri"), serif;
   font-size: 18px;
   text-align: left;
 }

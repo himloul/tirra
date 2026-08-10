@@ -48,9 +48,17 @@
 <style>
 :root {
   {{ with .contentWidth }}--content-width: {{ . }};{{ end }}
-  {{ with .font.body }}--font-body: {{ . | safeCSS }};{{ end }}
-  {{ with .font.heading }}--font-heading: {{ . | safeCSS }};{{ end }}
-  {{ with .font.code }}--font-code: {{ . | safeCSS }};{{ end }}
+  {{ $fallbacks := dict "body" "system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'" "heading" "system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'" "code" "ui-monospace, 'SF Mono', Menlo, Consolas, monospace" "arabic" "serif" }}
+  {{ $gd := site.Params.theme.font.google }}
+  {{ $gf := .font }}
+  {{ range $role, $fallback := $fallbacks }}
+    {{ $stack := index $gf $role }}
+    {{ if not $stack }}
+      {{ $name := index $gd $role }}
+      {{ if $name }}{{ $stack = printf "%q, %s" (index (split $name ":") 0) $fallback }}{{ end }}
+    {{ end }}
+    {{ with $stack }}--font-{{ $role }}: {{ . | safeCSS }};{{ end }}
+  {{ end }}
   {{ with .color.light }}--light: {{ . }};{{ end }}
   {{ with .color.lightgray }}--lightgray: {{ . }};{{ end }}
   {{ with .color.gray }}--gray: {{ . }};{{ end }}

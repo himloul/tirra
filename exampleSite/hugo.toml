@@ -14,10 +14,10 @@ enableRobotsTXT = true
   [params.theme]
     contentWidth = "650px"
 
-    [params.theme.font]
-      body = "'Source Sans 3', system-ui, sans-serif"
-      heading = "'Crimson Pro', system-ui, sans-serif"
-      code = "'Source Code Pro', ui-monospace, monospace"
+    [params.theme.font.google]
+      body = "Source Sans 3"
+      heading = "Crimson Pro"
+      code = "Source Code Pro"
 
     [params.theme.color]
       light = "#faf8f6"
