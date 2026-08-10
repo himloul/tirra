@@ -72,7 +72,6 @@
 {{ end }}
 </style>
 {{ end }}
-{{ $noop := .WordCount }}
 {{ if or (.Page.Store.Get "hasMath") (.Param "katex") }}
 <link rel="stylesheet" href="{{ "katex/katex.min.css" | relURL }}">
 {{ end }}
