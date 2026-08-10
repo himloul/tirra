@@ -9,9 +9,11 @@ Single-column Hugo theme for reading. Narrow text column, warm light and dark pa
   <img src="images/screenshot-mobile.png" alt="Home, mobile" height="400">
 </p>
 
-| Light article | Dark article | Card grid |
-| --- | --- | --- |
-| ![Article, light mode](images/screenshot-article.png) | ![Article, dark mode](images/screenshot-article-dark.png) | ![Card grid](images/screenshot-grid.png) |
+<p>
+  <img src="images/screenshot-article.png" alt="Article, light mode" width="32%">
+  <img src="images/screenshot-article-dark.png" alt="Article, dark mode" width="32%">
+  <img src="images/screenshot-grid.png" alt="Card grid" width="32%">
+</p>
 
 ## Features
 
