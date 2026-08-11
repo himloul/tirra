@@ -5,8 +5,8 @@ Single-column Hugo theme for reading. Narrow text column, warm light and dark pa
 ## Screenshots
 
 <p align="center">
-  <img src="images/sc.png" alt="Home, desktop" width="72%">
-  <img src="images/sc-grid.png" alt="Articles, Grid" width="24%">
+  <img src="https://raw.githubusercontent.com/himloul/tirra/main/images/sc.png" alt="Home, desktop" width="72%">
+  <img src="https://raw.githubusercontent.com/himloul/tirra/main/images/sc-grid.png" alt="Articles, Grid" width="24%">
 </p>
 
 ## Features
@@ -44,7 +44,7 @@ theme = "tirra"
 
 ## Demo site
 
-The `exampleSite/` directory is a working demo of every feature. From the theme root, link it and run:
+A live demo runs at [tirra-hugo.pages.dev](https://tirra-hugo.pages.dev/). The `exampleSite/` directory is the same working demo of every feature. From the theme root, link it and run:
 
 ```sh
 ln -s ../.. exampleSite/themes/tirra

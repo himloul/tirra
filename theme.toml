@@ -1,8 +1,9 @@
 name = "tirra"
 license = "MIT"
-licenselink = "https://mit-license.org"
+licenselink = "https://github.com/himloul/tirra/blob/main/LICENSE"
 description = "Minimal reading-first Hugo theme with dark mode, search, TOC, lightbox, Mermaid, and KaTeX"
 homepage = "https://github.com/himloul/tirra"
+demosite = "https://tirra-hugo.pages.dev"
 tags = ["blog", "reading", "minimal", "dark-mode", "search", "pwa", "responsive"]
 features = [
   "dark mode with system preference detection and toggle",
