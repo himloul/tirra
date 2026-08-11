@@ -324,13 +324,27 @@ footer {
 
 footer .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.15em;
+  gap: 0.75em;
   color: var(--gray);
   font-size: 0.85rem;
 }
 
-footer .container > span { margin-right: 1.25em; }
+footer .container > span { margin-right: 0; }
+
+footer .footer-social {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+@media (min-width: 640px) {
+  footer .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
 
 footer a {
   color: var(--gray);
@@ -346,6 +360,13 @@ footer a {
   display: block;
   width: 1em;
   height: 1em;
+}
+
+.footer-credits a {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  display: inline;
 }
 
 .article-title {
