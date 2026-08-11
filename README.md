@@ -5,9 +5,8 @@ Single-column Hugo theme for reading. Narrow text column, warm light and dark pa
 ## Screenshots
 
 <p>
-  <img src="images/screenshot.png" alt="Home, desktop" width="32%">
-  <img src="images/screenshot-article-dark.png" alt="Article, dark mode" width="32%">
-  <img src="images/screenshot-grid-mobile.png" alt="Card grid, mobile" width="32%">
+  <img src="images/sc.png" alt="Home, desktop" width="75.04%">
+  <img src="images/sc-grid.png" alt="Articles, Grid" width="24.96%">
 </p>
 
 ## Features
