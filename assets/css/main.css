@@ -441,14 +441,17 @@ footer a {
   padding: 0;
 }
 
-.item-list li { margin: 0.6em 0; }
+.item-list li { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; margin: 0.6em 0; }
 .item-list a { color: var(--dark); }
 .item-list a.draft { color: color-mix(in srgb, var(--dark) 55%, transparent); }
 @media (hover: hover) {
   .item-list a:hover { color: var(--dark); }
   .item-list a.draft:hover { color: color-mix(in srgb, var(--dark) 80%, transparent); }
 }
-.item-list .date { font-size: 0.85rem; color: var(--gray); margin-left: 0.5em; }
+.item-list .date { font-size: 0.85rem; color: var(--gray); flex-shrink: 0; white-space: nowrap; }
+@media (max-width: 640px) {
+  .item-list li { flex-direction: column; align-items: flex-start; gap: 0.15rem; }
+}
 
 .card-grid {
   display: grid;
