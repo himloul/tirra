@@ -1,9 +1,11 @@
 # tirra
 
+
+
 A Hugo theme for a digital garden. Your whole site is a folder of Markdown files:
 notes, folders, and posts publish as pages. Nothing else to build.
 
-*tirra* (ⵜⵉⵔⵔⴰ) means "writing" in Tamazight, the theme is a narrow column for a digital garden.
+*tirra* (ⵜⵉⵔⵔⴰ) means "writing" in Tamazight.
 
 Demo: https://tirra-hugo.pages.dev/ · Requires Hugo ≥ 0.146.0
 
@@ -14,18 +16,12 @@ Demo: https://tirra-hugo.pages.dev/ · Requires Hugo ≥ 0.146.0
   <img src="https://raw.githubusercontent.com/himloul/tirra/main/images/sc-grid.png" alt="Articles, Grid" width="24%">
 </p>
 
-## Features
+## What you get
 
-- Reading-first: narrow column, TOC, reading time, reading progress bar, back-to-top
-- Dark mode that follows the system, toggle saved to `localStorage`
-- Full-text search (`Ctrl+K`) across every page
-- Offline reading via a service worker and an installable web app manifest
-- Breadcrumbs on every page; folders under `content/` become sections — an Obsidian-style vault drops in as-is
-- Card-grid section layout, heading anchor links, JSON-LD and Open Graph meta
-
-## Content
-
-Server-side KaTeX, `> [!type]` callouts, `mermaid` fences, copy buttons, image lightbox, auto-sized lazy images, print stylesheet, plain Markdown, full syntax in `exampleSite/content`.
+- **Reading:** narrow column, TOC, reading time, progress bar, back-to-top
+- **Writing:** plain Markdown with server-side KaTeX, `mermaid` fences, and `> [!type]` callouts
+- **Navigation:** folders under `content/` become pages with breadcrumbs — an Obsidian vault drops in as-is
+- **Web basics:** dark mode (system + remembered toggle), full-text search (`Ctrl+K`), offline reading + installable app (service worker + manifest), heading anchors, JSON-LD and Open Graph meta
 
 ## Install
 
@@ -42,10 +38,10 @@ theme = "tirra"
 
 `_merge = "deep"` is required for the theme's markup defaults to apply.
 
-## Config
+## Start
 
-Copy `exampleSite/` - a working demo of every feature — edit `baseURL` and `title`, delete the demo posts. Palettes, fonts, width, and search tuning live under `[params.theme]`; KaTeX and favicon assets are static files the demo ships.
+Copy `exampleSite/` - a working demo of everything — edit `baseURL` and `title`, delete the demo posts. Palettes, fonts, width, and search tuning live under `[params.theme]` in `hugo.toml`.
 
 ## License
 
-MIT.
+MIT. See `LICENSE`.
