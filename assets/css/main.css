@@ -405,35 +405,12 @@ footer a {
   .breadcrumbs a:hover { color: var(--dark); }
 }
 
-.list-page h2 { font-family: var(--font-heading); }
-.list-page ul { list-style: none; padding: 0; }
-.list-page li { margin: 1em 0; }
-.list-page a { font-size: 1.1rem; color: var(--dark); }
-@media (hover: hover) {
-  .list-page a:hover { color: var(--dark); }
-}
-.list-page .list-meta { font-size: 0.85rem; color: var(--gray); margin-left: 0.5em; }
-
 .home-title {
   font-family: var(--font-heading);
   font-size: 2rem;
   color: var(--dark);
   margin: 0.5em 0 0.2em;
   line-height: 1.2;
-}
-
-.home-intro {
-  margin: 2em 0;
-  line-height: 1.8;
-}
-
-.home-intro a { color: var(--gray); }
-
-.section-title {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  margin: 1.5em 0 0.5em;
-  color: var(--dark);
 }
 
 .item-list {
