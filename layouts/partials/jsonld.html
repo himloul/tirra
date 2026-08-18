@@ -26,7 +26,7 @@
     "@type": "Person",
     "name": {{ (site.Params.author | default site.Title) | jsonify }}
   },
-  "image": {{ ("og-image.png" | absURL) | jsonify }}
+  "image": {{ ((site.Params.ogImage | default "og-image.png") | absURL) | jsonify }}
 }
 </script>
 {{ end -}}

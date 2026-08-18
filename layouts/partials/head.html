@@ -19,13 +19,13 @@
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:locale" content="{{ site.Language.Lang | default "en" }}">
-<meta property="og:image" content="{{ "og-image.png" | absURL }}">
+<meta property="og:image" content="{{ site.Params.ogImage | default "og-image.png" | absURL }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:description" content="{{ $desc }}">
-<meta name="twitter:image" content="{{ "og-image.png" | absURL }}">
-<meta name="theme-color" content="{{ with site.Params.theme.color.light }}{{ . }}{{ else }}#faf8f6{{ end }}">
+<meta name="twitter:image" content="{{ site.Params.ogImage | default "og-image.png" | absURL }}">
+<meta name="theme-color" content="{{ with site.Params.theme.color.light }}{{ . }}{{ else }}#fff{{ end }}">
 <meta name="color-scheme" content="light dark">
 {{ $gf := site.Params.theme.font.google }}
 {{ $families := slice }}
@@ -66,6 +66,11 @@
   {{ with .color.dark }}--dark: {{ . }};{{ end }}
   {{ with .color.highlight }}--highlight: {{ . }};{{ end }}
   {{ with .color.textHighlight }}--textHighlight: {{ . }};{{ end }}
+  {{ with .color.calloutInfo }}--callout-info: {{ . }};{{ end }}
+  {{ with .color.calloutTip }}--callout-tip: {{ . }};{{ end }}
+  {{ with .color.calloutImportant }}--callout-important: {{ . }};{{ end }}
+  {{ with .color.calloutWarning }}--callout-warning: {{ . }};{{ end }}
+  {{ with .color.calloutAlert }}--callout-alert: {{ . }};{{ end }}
 }
 {{ with .colorDark }}
 [data-theme="dark"] {
@@ -76,6 +81,13 @@
   {{ with .dark }}--dark: {{ . }};{{ end }}
   {{ with .highlight }}--highlight: {{ . }};{{ end }}
   {{ with .textHighlight }}--textHighlight: {{ . }};{{ end }}
+  {{ with .link }}--link: {{ . }};{{ end }}
+  {{ with .linkUnderline }}--link-underline: {{ . }};{{ end }}
+  {{ with .calloutInfo }}--callout-info: {{ . }};{{ end }}
+  {{ with .calloutTip }}--callout-tip: {{ . }};{{ end }}
+  {{ with .calloutImportant }}--callout-important: {{ . }};{{ end }}
+  {{ with .calloutWarning }}--callout-warning: {{ . }};{{ end }}
+  {{ with .calloutAlert }}--callout-alert: {{ . }};{{ end }}
 }
 {{ end }}
 </style>
@@ -83,5 +95,8 @@
 {{ if or (.Page.Store.Get "hasMath") (.Param "katex") }}
 <link rel="stylesheet" href="{{ "katex/katex.min.css" | relURL }}">
 {{ end }}
+{{ with site.Params.analytics.plausible }}
+<script defer data-domain="{{ . }}" src="https://plausible.io/js/script.js"></script>
+{{ end }}
 {{ partial "jsonld.html" . }}
-{{ block "head-extra" . }}{{ end }}
+{{ partial "head-extra.html" . }}

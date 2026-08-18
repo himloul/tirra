@@ -40,7 +40,7 @@ theme = "tirra"
 
 ## Start
 
-Copy `exampleSite/` - a working demo of everything — edit `baseURL` and `title`, delete the demo posts. Palettes, fonts, width, and search tuning live under `[params.theme]` in `hugo.toml`.
+Copy `exampleSite/` - a working demo of everything — edit `baseURL` and `title`, delete the demo posts. Palettes, fonts, width, and search tuning live under `[params.theme]` in `hugo.toml`. Palette and callout colors default to `assets/css/main.css`; set only the keys you want to override.
 
 ## License
 
