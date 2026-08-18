@@ -12,30 +12,19 @@ enableRobotsTXT = true
     github = "your-github"
 
   [params.theme]
-    contentWidth = "650px"
 
     [params.theme.font.google]
       body = "Source Sans 3"
       heading = "Crimson Pro"
-      code = "Source Code Pro"
 
-    [params.theme.color]
-      light = "#faf8f6"
-      lightgray = "#ddd6cc"
-      gray = "#7a736c"
-      darkgray = "#3a3632"
-      dark = "#221f1c"
-      highlight = "#c8b49b59"
-      textHighlight = "#e6be5066"
+    # Palette defaults live in themes/tirra/assets/css/main.css.
+    # Config overrides them; e.g.:
+    # [params.theme.color]
+    #   light = "#fff"
 
-    [params.theme.colorDark]
-      light = "#1a1a1e"
-      lightgray = "#2e2e34"
-      gray = "#7a7a80"
-      darkgray = "#d4d0cc"
-      dark = "#ece8e2"
-      highlight = "#b4aa961f"
-      textHighlight = "#c8aa5066"
+    # Analytics: set your Plausible domain to enable.
+    # [params.analytics]
+    #   plausible = "your-domain.example.org"
 
 [sitemap]
   changefreq = "weekly"

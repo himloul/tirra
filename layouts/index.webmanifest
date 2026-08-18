@@ -4,8 +4,8 @@
   "start_url": {{ "/" | relURL | jsonify }},
   "scope": {{ "/" | relURL | jsonify }},
   "display": "standalone",
-  "background_color": {{ site.Params.theme.color.light | default "#faf8f6" | jsonify }},
-  "theme_color": {{ site.Params.theme.color.light | default "#faf8f6" | jsonify }},
+  "background_color": {{ site.Params.theme.color.light | default "#fff" | jsonify }},
+  "theme_color": {{ site.Params.theme.color.light | default "#fff" | jsonify }},
   "icons": [
     { "src": {{ "icon-192.png" | relURL | jsonify }}, "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": {{ "icon-512.png" | relURL | jsonify }}, "sizes": "512x512", "type": "image/png", "purpose": "any" }
