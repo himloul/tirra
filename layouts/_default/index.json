@@ -1,5 +1,6 @@
 {{- $index := slice -}}
-{{- range where .Site.RegularPages "Draft" false -}}
+{{- $pages := where .Site.RegularPages "Draft" false -}}
+{{- range where $pages "Params.unlisted" "ne" true -}}
   {{- $index = $index | append (dict
     "title" .Title
     "url" .RelPermalink

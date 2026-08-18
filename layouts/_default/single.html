@@ -4,9 +4,19 @@
     {{ partial "breadcrumbs.html" . }}
     <h1 class="article-title">{{ .Title }}</h1>
     <div class="article-meta">{{ with .Date }}{{ .Format "Jan 2, 2006" }} · {{ end }}{{ .ReadingTime }} min read{{ if and (site.Params.theme.showLastmod | default true) .Lastmod (ne .Lastmod .Date) }} · Updated {{ .Lastmod.Format "Jan 2, 2006" }}{{ end }}{{ if .Draft }} · <span class="draft-badge">draft</span>{{ end }}</div>
+    {{ with .Params.description }}<p class="article-description">{{ . }}</p>{{ end }}
     {{ with .Params.tags }}<div class="tag-list">{{ range . }}<a href="{{ "tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>{{ end }}</div>{{ end }}
     {{ with .TableOfContents }}{{ if gt (len (findRE "<a" .)) 0 }}<details class="toc"><summary>On this page</summary>{{ . }}</details>{{ end }}{{ end }}
     <div>{{ .Content }}</div>
+    {{- /* ponytail: substring scan of RawContent; switch to a build-time link index if the garden outgrows this */ -}}
+    {{- $refs := slice -}}
+    {{- $pages := where (where site.RegularPages "Draft" false) "Params.unlisted" "ne" true | complement (slice .) -}}
+    {{- range $pages }}{{ if strings.Contains .RawContent $.RelPermalink }}{{ $refs = $refs | append . }}{{ end }}{{ end -}}
+    {{- if $refs -}}
+    <details class="backlinks"><summary>Links to this note</summary><ul>
+      {{- range $refs }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+    </ul></details>
+    {{- end -}}
   </article>
 </div>
 {{ end }}

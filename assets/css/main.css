@@ -1,14 +1,14 @@
 :root {
-  --light: #faf8f6;
+  --light: #fff;
   --lightgray: #ddd6cc;
-  --gray: #756e67;
+  --gray: #7a736c;
   --darkgray: #3a3632;
   --dark: #221f1c;
   --highlight: #c8b49b59;
   --textHighlight: #e6be5066;
   --font-body: "Source Sans 3", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --font-heading: "Crimson Pro", system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-code: "Source Code Pro", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --font-code: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   --content-width: 650px;
   --callout-info: #3f6ec6;
   --callout-tip: #3c8a55;
@@ -20,11 +20,13 @@
 [data-theme="dark"] {
   --light: #1a1a1e;
   --lightgray: #2e2e34;
-  --gray: #8b8b93;
+  --gray: #7a7a80;
   --darkgray: #d4d0cc;
   --dark: #ece8e2;
   --highlight: #b4aa961f;
   --textHighlight: #c8aa5066;
+  --link: #a2a2aa;
+  --link-underline: #4a4a52;
   --callout-info: #79a5e8;
   --callout-tip: #6fce8f;
   --callout-important: #b18fe6;
@@ -88,7 +90,7 @@ a {
   }
 }
 
-[data-theme="dark"] a { color: #a2a2aa; text-decoration-color: #4a4a52; }
+[data-theme="dark"] a { color: var(--link); text-decoration-color: var(--link-underline); }
 [data-theme="dark"] a:hover { color: var(--dark); text-decoration-color: var(--gray); }
 a:has(svg) { text-decoration: none; }
 .tag-list a { text-decoration: none; }
@@ -381,6 +383,11 @@ footer a {
   color: var(--gray);
   font-size: 0.85rem;
   margin-bottom: 1.5em;
+}
+
+.article-description {
+  color: var(--gray);
+  margin: -0.5em 0 1.5em;
 }
 
 .draft-badge {
@@ -930,6 +937,29 @@ footer a {
 .toc nav ul ul { padding-left: 1em; }
 
 .toc nav a {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.backlinks {
+  margin: 1.5em 0;
+  padding: 0.6em 1em;
+  border-left: 2px solid var(--lightgray);
+}
+
+.backlinks summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.backlinks ul {
+  list-style: none;
+  padding-left: 0.5em;
+  margin: 0.5em 0 0;
+}
+
+.backlinks a {
   color: var(--gray);
   font-size: 0.9rem;
 }

@@ -5,12 +5,12 @@
     <h1 class="article-title">{{ .Title }}</h1>
     {{ with .Content }}<div>{{ . }}</div>{{ end }}
     <ul class="item-list">
-      {{ range .Pages }}
+      {{ range .Pages }}{{ if not .Params.unlisted }}
       <li>
         <a href="{{ .RelPermalink }}"{{ if .Draft }} class="draft"{{ end }}>{{ .Title }}</a>
         {{ with .Date }}<span class="date">{{ .Format "Jan 2, 2006" }}</span>{{ end }}
       </li>
-      {{ end }}
+      {{ end }}{{ end }}
     </ul>
   </article>
 </div>
