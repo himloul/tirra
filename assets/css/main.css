@@ -691,6 +691,7 @@ footer a {
   margin-right: 0.75em !important;
   user-select: none !important;
 }
+.code-container .hl { background: var(--highlight); }
 .code-container .clipboard-button {
   position: absolute; top: 0.5rem; right: 0.5rem;
   transition: opacity 0.2s;
