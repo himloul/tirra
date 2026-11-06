@@ -5,7 +5,7 @@
 {{ $ll := default 10 $su.limit }}
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('{{ "sw.js" | relURL }}') }
 
-document.addEventListener("click",function(e){var b=e.target.closest(".clipboard-button");if(!b||b.classList.contains("copied"))return;var c=b.closest(".code-container,.mermaid-container");if(!c)return;var p=c.querySelector("pre");if(!p)return;navigator.clipboard.writeText(p.textContent);var t=b.innerHTML;b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';b.classList.add("copied");setTimeout(function(){b.innerHTML=t;b.classList.remove("copied")},2000)});
+document.addEventListener("click",function(e){var b=e.target.closest(".clipboard-button");if(!b||b.classList.contains("copied"))return;var c=b.closest(".code-container,.mermaid-container");if(!c)return;var p=c.querySelector("pre");if(!p)return;var k=p.cloneNode(true);k.querySelectorAll(".ln").forEach(function(n){n.remove()});navigator.clipboard.writeText(k.textContent);var t=b.innerHTML;b.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';b.classList.add("copied");setTimeout(function(){b.innerHTML=t;b.classList.remove("copied")},2000)});
 
 var pb=document.getElementById("progress-bar");if(pb){function upP(){var d=document.documentElement;var sc=d.scrollTop||document.body.scrollTop;var mh=(d.scrollHeight||document.body.scrollHeight)-d.clientHeight;pb.style.width=(mh>0?(sc/mh)*100:0)+"%"}document.addEventListener("scroll",upP,{passive:true});upP()}
 
